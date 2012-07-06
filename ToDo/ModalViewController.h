@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModalViewController : UIViewController <UIActionSheetDelegate> {
-    UITextView *textView;
-}
+@interface ModalViewController : UIViewController <UIActionSheetDelegate>
 
-@property (nonatomic, retain) IBOutlet UITextView* textView;
+@property (nonatomic, strong) IBOutlet UITextView* textView;
 
 -(IBAction)pressActionSheet:(id)sender;
 

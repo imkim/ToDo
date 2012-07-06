@@ -14,6 +14,8 @@
 
 @implementation ModalViewController
 
+@synthesize textView = _textView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,9 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    textView.editable = YES;
-    textView.text = @"";
-    [textView becomeFirstResponder];
+    _textView.editable = YES;
+    _textView.text = @"";
+    [_textView becomeFirstResponder];
 }
 
 - (void)viewDidUnload
@@ -41,12 +43,9 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-- (IBAction)closeModalView:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
-}
 
 -(IBAction)pressActionSheet:(id)sender{
-	[textView resignFirstResponder];
+	[_textView resignFirstResponder];
     UIActionSheet *sheet =[[UIActionSheet alloc] 
 						   initWithTitle:@"Close?"
 						   delegate:self
@@ -56,7 +55,7 @@
 	
 	[sheet setActionSheetStyle:UIActionSheetStyleDefault];
 	[sheet showInView:self.view];
-    [textView becomeFirstResponder];
+    [_textView becomeFirstResponder];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -66,7 +65,7 @@
 }
 - (IBAction)sendPost:(id)sender {
     NSString *todoStr;
-    todoStr = textView.text;
+    todoStr = _textView.text;
 }
 
 @end

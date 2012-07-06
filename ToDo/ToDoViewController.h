@@ -10,4 +10,6 @@
 
 @interface ToDoViewController : UITableViewController
 
+@property (nonatomic, strong) NSMutableArray *array;
+
 @end
