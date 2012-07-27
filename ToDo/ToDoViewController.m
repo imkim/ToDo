@@ -7,6 +7,7 @@
 //
 
 #import "ToDoViewController.h"
+#import "ModalViewController.h"
 
 @interface ToDoViewController ()
 
@@ -14,7 +15,7 @@
 
 @implementation ToDoViewController
 
-@synthesize array = _array;
+//@synthesize array = _array;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.array = [NSMutableArray array];
+//    self.array = [NSMutableArray array];
     
 }
 
@@ -44,6 +45,14 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(IBAction)PostButtonPress:(id)sender
+{
+    ModalViewController *modalView = [[ModalViewController alloc] initWithNibName:@"ModalViewController" bundle:nil];
+    modalView.delegate = self;
+    modalView.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentModalViewController:modalView animated:YES];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -55,7 +64,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_array count];
+//    return [_array count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,7 +76,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [_array objectAtIndex:indexPath.row]];
+//    cell.textLabel.text = [NSString stringWithFormat:@"%@", [_array objectAtIndex:indexPath.row]];
     return cell;
 }
 
@@ -116,7 +125,7 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"Nib name" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];

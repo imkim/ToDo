@@ -15,6 +15,7 @@
 @implementation ModalViewController
 
 @synthesize textView = _textView;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

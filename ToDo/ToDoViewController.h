@@ -10,6 +10,9 @@
 
 @interface ToDoViewController : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray *array;
+//@property (nonatomic, strong) NSMutableArray *array;
+
+-(IBAction)PostButtonPress:(id)sender;
+-(void)ModalViewCloseButtonPress:(int)iNumber;
 
 @end

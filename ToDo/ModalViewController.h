@@ -11,6 +11,7 @@
 @interface ModalViewController : UIViewController <UIActionSheetDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextView* textView;
+@property (nonatomic, strong) id delegate;
 
 -(IBAction)pressActionSheet:(id)sender;
 
