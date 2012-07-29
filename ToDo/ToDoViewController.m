@@ -47,7 +47,7 @@
 
 -(IBAction)PostButtonPress:(id)sender
 {
-    ModalViewController *modalView = [[ModalViewController alloc] initWithNibName:@"ModalViewController" bundle:nil];
+    ModalViewController *modalView = [self.storyboard instantiateViewControllerWithIdentifier:@"ModalViewController"];
     modalView.delegate = self;
     modalView.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentModalViewController:modalView animated:YES];
